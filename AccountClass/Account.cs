@@ -9,7 +9,7 @@ namespace AccountClass {
         public int AccountNumber { get; private set; }
         private decimal Balance { get; set; } = 0.0M; //the capital M at the end tells it to use it as a decimal not a double 
         public string Description { get; set; }
-        public int CustomerId { get; set; } //setting this to connect customer with the right account number 
+        public Customer CustomerInstance { get; set; } = null;//setting this to connect customer with the right account number, without a value its null 
 
         public void Transfer(Account acct, decimal amount) {
            var withdrawSuccessful = this.Withdraw(amount); // this refers to  whatever account we use to call transfer [acct1.transfer(acct2, 1000)]
@@ -17,12 +17,16 @@ namespace AccountClass {
                 acct.Deposit(amount);
             }
         }
+        public Account(Customer customer) : this() { // by using this constructor customers will be assigned as soon as account is created 
+            this.CustomerInstance = customer;
+        }
 
-        public Account() {
+        private Account() { // by making this private this will still exist and we will not have to create default account 
             AccountNumber = ++nextAccountNbr;
         }
-        public Account(String Description) : this(){ // : this() is refereing back to the other constructor
+        public Account(String Description, Customer customer) : this(){ // : this() is refereing back to the other constructor
             this.Description = Description;
+            this.CustomerInstance = customer;
         }
 
         public decimal GetBalance() {
