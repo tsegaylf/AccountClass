@@ -6,13 +6,11 @@ namespace AccountClass {
 
             //Build systrem for Bank with multiple types of accounts
 
-            var acct1 = new Account(); // acct1 is the variable name
-            acct1.AccountNumber = "12345";
+            var acct1 = new Account("Primary Checking"); // acct1 is the variable name
 
-            acct1.Description = "Primary Checking";
-            acct1.Deposit(50000);
+            acct1.Deposit(1000);
             Console.WriteLine($"{acct1.AccountNumber} {acct1.Description} {acct1.GetBalance()}");
-            acct1.Withdraw(52000);
+            acct1.Withdraw(5000);
             Console.WriteLine($"{acct1.AccountNumber} {acct1.Description} {acct1.GetBalance()}");
             acct1.Deposit(5);
             Console.WriteLine($"{acct1.AccountNumber} {acct1.Description} {acct1.GetBalance()}");
@@ -20,6 +18,13 @@ namespace AccountClass {
             Console.WriteLine($"{balance}");
             acct1.Withdraw(-1000000);
             Console.WriteLine($"{acct1.AccountNumber} {acct1.Description} {acct1.GetBalance()}");
+
+            var acct2 = new Account("Secondary Checking");
+            acct1.Transfer(acct2, 2000);
+            Console.WriteLine($"{acct1.AccountNumber} {acct1.Description} {acct1.GetBalance()}");
+            Console.WriteLine($"{acct2.AccountNumber} {acct2.Description} {acct2.GetBalance()}");
+
+
         }
 
     }
