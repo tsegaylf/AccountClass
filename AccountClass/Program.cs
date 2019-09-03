@@ -6,7 +6,11 @@ namespace AccountClass {
         static void Main(string[] args) {
             var cust1 = new Customer();
             cust1.Name = "New Customer";
-           
+
+            var sav1 = new Savings(0.02m, "My Primary Savings", cust1);
+            sav1.Deposit(100);
+            sav1.Withdraw(20);
+            Console.WriteLine($"Savv1 Balance is {sav1.GetBalance()}");
 
             var acct1 = new Account("Primary Checking", cust1); // creating an account looks like this 
             acct1.Deposit(2);
