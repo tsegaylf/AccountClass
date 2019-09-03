@@ -8,15 +8,25 @@ namespace AccountClass {
             cust1.Name = "New Customer";
 
             var sav1 = new Savings(0.02m, "My Primary Savings", cust1);
-            sav1.Deposit(100);
+            sav1.Deposit(120);
             sav1.Withdraw(20);
             Console.WriteLine($"Savv1 Balance is {sav1.GetBalance()}");
+            //var interst = sav1.CalcInterest(6);
+            //sav1.Deposit(interst);
+            sav1.CalcAndPayInterest(6); // combining the top two steps
+            Console.WriteLine($"Savv1 Balance is {sav1.GetBalance().ToString("C")}"); // .ToString("C") after value will print as two decimel with dollar sign
+            Console.WriteLine(sav1.Print());
+
+            var chk1 = new Checking("First Checking", cust1);
+            chk1.Deposit(200);
+            Console.WriteLine(chk1.Print());
+
 
             var acct1 = new Account("Primary Checking", cust1); // creating an account looks like this 
             acct1.Deposit(2);
             //Console.WriteLine($"{acct1.AccountNumber} {acct1.Description} "
             //    + $" {acct1.GetBalance()} {acct1.CustomerInstance.Name}");
-
+            Console.WriteLine(acct1.Print());
 
             var acct2 = new Account("Secondary Checking", cust1);
             acct2.Deposit(1000);

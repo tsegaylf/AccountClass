@@ -11,6 +11,12 @@ namespace AccountClass {
         public string Description { get; set; }
         public Customer CustomerInstance { get; set; } = null;//setting this to connect customer with the right account number, without a value its null 
 
+
+        public string Print() {
+            return $"{this.GetType().Name} Nbr: {AccountNumber}, Desc: {Description}, Bal: {GetBalance().ToString("C")}";
+
+        } 
+
         public void Transfer(Account acct, decimal amount) {
            var withdrawSuccessful = this.Withdraw(amount); // this refers to  whatever account we use to call transfer [acct1.transfer(acct2, 1000)]
             if(withdrawSuccessful) {
