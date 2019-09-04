@@ -21,24 +21,24 @@ namespace AccountClass {
             chk1.Deposit(200);
             Console.WriteLine(chk1.Print());
 
+            /// This will no longer work because we set Account class to "abstract"
+            ////var acct1 = new Account("Primary Checking", cust1); 
+            ////acct1.Deposit(2);
+            //////Console.WriteLine($"{acct1.AccountNumber} {acct1.Description} "
+            //////    + $" {acct1.GetBalance()} {acct1.CustomerInstance.Name}");
+            ////Console.WriteLine(acct1.Print());
 
-            var acct1 = new Account("Primary Checking", cust1); // creating an account looks like this 
-            acct1.Deposit(2);
-            //Console.WriteLine($"{acct1.AccountNumber} {acct1.Description} "
-            //    + $" {acct1.GetBalance()} {acct1.CustomerInstance.Name}");
-            Console.WriteLine(acct1.Print());
+            ////var acct2 = new Account("Secondary Checking", cust1);
+            ////acct2.Deposit(1000);
+            //////Console.WriteLine($"{acct2.AccountNumber} {acct2.Description} "
+            //////    + $" {acct2.GetBalance()} {acct2.CustomerInstance.Name}");
 
-            var acct2 = new Account("Secondary Checking", cust1);
-            acct2.Deposit(1000);
-            //Console.WriteLine($"{acct2.AccountNumber} {acct2.Description} "
-            //    + $" {acct2.GetBalance()} {acct2.CustomerInstance.Name}");
+            ////cust1.Name = "1st Customer";
 
-            cust1.Name = "1st Customer";
-
-            var acct3 = new Account("Primary Savings", cust1);
-            acct3.Deposit(50000);
-            //Console.WriteLine($"{acct3.AccountNumber} {acct3.Description} "
-            //    + $" {acct3.GetBalance()} {acct3.CustomerInstance.Name}");
+            ////var acct3 = new Account("Primary Savings", cust1);
+            ////acct3.Deposit(50000);
+            //////Console.WriteLine($"{acct3.AccountNumber} {acct3.Description} "
+            //////    + $" {acct3.GetBalance()} {acct3.CustomerInstance.Name}");
 
             var accounts = new Account[] { acct1, acct2, acct3 };
             var accountTotal = 0M;

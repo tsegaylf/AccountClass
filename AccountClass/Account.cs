@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AccountClass {
 
-    public class Account {
+    public abstract class Account {
         private static int nextAccountNbr = 0; //we want this instance only once for the class so we added static infront of int
         public int AccountNumber { get; private set; }
         private decimal Balance { get; set; } = 0.0M; //the capital M at the end tells it to use it as a decimal not a double 
