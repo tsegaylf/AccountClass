@@ -30,9 +30,9 @@ namespace AccountClass {
             return _account.GetBalance();
         }
 
-        public Checking(string description, Customer customer) {
-            _account = new Account(description, customer); //instead of using base, we have to call the acount constructor with the parameter
-        }
+        //public Checking(string description, Customer customer) {
+        //    _account = new Account(description, customer); //instead of using base, we have to call the acount constructor with the parameter
+        //}
 
     }
 }
